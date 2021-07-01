@@ -32,7 +32,7 @@ const server = http.createServer((req,res)=>{
     {
         res.writeHead(200,{'Content-type':'text/html'});
 
-        const cardHtml = dataObj.map(el => replaceTemplate(tempCard,el)) 
+        const cardHtml = dataObj.map(el => replaceTemplate(tempCard,el)).join(''); 
         const output = tempOverview.replace('{%PRODUCT_CARDS%}',cardHtml);
         res.end(output);
     }
